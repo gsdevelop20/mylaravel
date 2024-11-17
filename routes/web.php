@@ -29,7 +29,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard/{id?}', function ($id) {
+Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })
     ->name('dashboard');
