@@ -26493,8 +26493,6 @@ input.p-dropdown-label  {
 @font-face {
     font-family: 'primeicons';
     font-display: block;
-    src: url(/_next/static/media/primeicons.ffecb254.eot);
-    src: url(/_next/static/media/primeicons.ffecb254.eot?#iefix) format('embedded-opentype'), url(/_next/static/media/primeicons.ba3f916d.woff2) format('woff2'), url(/_next/static/media/primeicons.f8b9e8a4.woff) format('woff'), url(/_next/static/media/primeicons.0112589c.ttf) format('truetype'), url(/_next/static/media/primeicons.943ab24c.svg?#primeicons) format('svg');
     font-weight: normal;
     font-style: normal;
 }

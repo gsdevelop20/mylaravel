@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StockMovementController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('stock-movements', StockMovementController::class)->except(['edit', 'update']);
+    Route::resource('roles', RoleController::class);
 });
 
 
@@ -42,8 +51,9 @@ Route::get('/uikit/button', function () {
     return Inertia::render('main/uikit/button/page');
 })->name('button');
 
+Route::get('/gabriel', function () {
+    return Inertia::render('main/uikit/gabriel/page');
+})->name('gabriel');
 
 
-
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
