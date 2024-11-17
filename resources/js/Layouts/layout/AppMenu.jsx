@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AppMenuitem from './AppMenuitem';
 import { LayoutContext } from './context/layoutcontext';
 import { MenuProvider } from './context/menucontext';
-import {Link} from "@inertiajs/react";
+import {Link, router} from "@inertiajs/react";
 
 const AppMenu = () => {
     const { layoutConfig } = useContext(LayoutContext);
@@ -13,7 +13,7 @@ const AppMenu = () => {
             items: [
                 { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: route('dashboard') },
                 { label: 'Button', icon: 'pi pi-fw pi-id-card', to: route('button') },
-                { label: 'gabriel', icon: 'pi pi-code', to: route('gabriel') },
+                { label: 'Categorias', icon: 'pi pi-fw pi-id-card', to: route('categories.index') },
             ]
         },
     ];

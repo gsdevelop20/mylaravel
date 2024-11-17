@@ -29,7 +29,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard/{id?}', function ($id) {
     return Inertia::render('Dashboard');
 })
     ->name('dashboard');
@@ -41,11 +41,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('categories', CategoryController::class);
+    Route::get('/categories/{category?}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+
     Route::resource('products', ProductController::class);
+    Route::get('/products/{product?}/edit', [ProductController::class, 'edit'])->name('products.edit');
+
     Route::resource('stock-movements', StockMovementController::class)->except(['edit', 'update']);
     Route::resource('roles', RoleController::class);
 });
-
 
 Route::get('/uikit/button', function () {
     return Inertia::render('main/uikit/button/page');

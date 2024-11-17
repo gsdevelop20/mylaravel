@@ -52,15 +52,15 @@ export default function Create() {
 
             <h1>Criar Nova Categoria</h1>
 
-            <form onSubmit={handleSubmit}>
-                <div className="p-field">
+            <form onSubmit={handleSubmit} className="flex flex-column gap-2">
+                <div className="p-field w-full">
                     <label htmlFor="name">Nome</label>
                     <InputText
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`p-inputtext ${errors.name ? 'p-invalid' : ''}`}
+                        className={`p-inputtext ${errors.name ? 'p-invalid' : ''} w-full`}
                     />
                     {errors.name && <small className="p-error">{errors.name}</small>}
                 </div>
@@ -72,12 +72,12 @@ export default function Create() {
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
-                        className={`p-inputtext ${errors.description ? 'p-invalid' : ''}`}
+                        className={`p-inputtext ${errors.description ? 'p-invalid' : ''} w-full`}
                     />
                     {errors.description && <small className="p-error">{errors.description}</small>}
                 </div>
 
-                <Button type="submit" label="Criar Categoria" className="p-button p-button-primary"/>
+                <Button type="submit" label="Criar Categoria" className="p-button w-10rem p-button-primary"/>
             </form>
         </Layout>
     );
