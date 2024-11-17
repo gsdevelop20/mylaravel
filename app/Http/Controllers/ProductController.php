@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->get(); // Inclui a categoria no resultado
-        return inertia('Products/Index', ['products' => $products]);
+        return inertia('main/uikit/products/Index', ['products' => $products]);
     }
 
     /**
@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all(); // Envia categorias para o formulário
-        return inertia('Products/Create', ['categories' => $categories]);
+        return inertia('main/uikit/products/Create', ['categories' => $categories]);
     }
 
     /**
@@ -50,7 +50,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product->load('category'); // Carrega a categoria associada
-        return inertia('Products/Show', ['product' => $product]);
+        return inertia('main/uikit/products', ['product' => $product]);
     }
 
     /**
@@ -59,7 +59,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all(); // Envia categorias para o formulário de edição
-        return inertia('Products/Edit', [
+        return inertia('main/uikit/products/Edit', [
             'product' => $product,
             'categories' => $categories,
         ]);

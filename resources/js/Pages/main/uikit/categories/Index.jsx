@@ -62,6 +62,7 @@ const Index = ({categories}) => {
                     visible={showDeleteDialog}
                     style={{width: '400px'}}
                     header="Confirmar Exclusão"
+                    onHide={() => setShowDeleteDialog(false)}
                     modal
                     footer={
                         <div>

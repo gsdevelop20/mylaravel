@@ -10,9 +10,9 @@ import 'primeflex/primeflex.css'; // Estilos principais do PrimeReact
 import '../css/layout.css'
 
 
-import { createRoot } from 'react-dom/client';
-import { createInertiaApp } from '@inertiajs/react';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import {createRoot} from 'react-dom/client';
+import {createInertiaApp} from '@inertiajs/react';
+import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {LayoutProvider} from "@/Layouts/layout/context/layoutcontext.jsx";
 import {PrimeReactProvider} from "primereact/api";
 
@@ -21,14 +21,14 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx')),
-    setup({ el, App, props }) {
+    setup({el, App, props}) {
         const root = createRoot(el);
 
         root.render(
             <PrimeReactProvider>
-            <LayoutProvider>
-            <App {...props} />
-            </LayoutProvider>
+                <LayoutProvider>
+                    <App {...props} />
+                </LayoutProvider>
             </PrimeReactProvider>
         );
     },
