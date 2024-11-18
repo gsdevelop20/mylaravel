@@ -35,13 +35,15 @@ Route::get('/dashboard', function () {
     ->name('dashboard');
 //    ->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('categories', CategoryController::class);
-    Route::get('/categories/{category?}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::middleware(['role:admin'])->group(function () {
+        Route::resource('categories', CategoryController::class);
+        Route::get('/categories/{category?}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    });
 
     Route::resource('products', ProductController::class);
     Route::get('/products/{product?}/edit', [ProductController::class, 'edit'])->name('products.edit');
