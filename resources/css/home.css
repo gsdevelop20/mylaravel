@@ -33,7 +33,7 @@
   border-radius: 10px;
 }
 .container-section-1 img {
-  max-width: 150%;
+  max-width: 100%;
 }
 @media (max-width: 948px) {
   .container-section-1 img {
